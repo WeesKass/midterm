@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Code</title>
+</head>
+
+<body style="background-position: bottom;">
+
+<section layout:fragment="content">
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text">
+            <a th:href="@{/add}" class="btn btn-outline-success my-2 my-sm-0">Add New Customer</a>
+        </span>
+
+<!--        <form class="form-inline">-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <select class="custom-select" id="inputGroupSelect01">-->
+<!--                <option selected value="all">all</option>-->
+<!--                <option  value="id">by id</option>-->
+<!--                <option value="firstname">by firstname</option>-->
+<!--                <option value="lastname">by lastname</option>-->
+<!--                <option value="email">by email</option>-->
+<!--            </select>-->
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--        </form>-->
+    </nav>
+    <h1 class="text-center" style="margin-top: 42px;height: 65px;" th:text = "${customerList!=null and !customerList.isEmpty()} ? 'List of customers!' : 'No customers!'"></h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">WebPage</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody  th:each="customer, iter : ${customerList}">
+        <tr>
+            <th scope="row" th:text = "${iter.index+1}"></th>
+            <td th:text = "${customer.getFirstName()}">First</td>
+            <td th:text = "${customer.getLastName()}">Last</td>
+            <td th:text = "${customer.getPhoneNumber()}">Phone</td>
+            <td th:text = "${customer.getEmail()}">Email</td>
+            <td th:href = "@{${customer.getWebPage()}}">click</td>
+            <td><a th:href="@{'/api/customer/'+${customer.getId()}}">DELETE</a></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <title>Code</title>
+</head>
+
+<body style="background-position: bottom;">
+
+<section layout:fragment="content">
+
+    <form th:action="@{/api/customer/}" th:object="${customer}" modelAttribute="customer" method="post">
+        <input type="text" th:field="*{firstName}"
+               class="form-control mb-4 col-4" placeholder="First Name">
+
+        <input type="text" th:field="*{lastName}"
+               class="form-control mb-4 col-4" placeholder="Last Name">
+
+        <input type="text" th:field="*{email}"
+               class="form-control mb-4 col-4" placeholder="Email Address">
+
+        <input type="text" th:field="*{job}"
+               class="form-control mb-4 col-4" placeholder="Job Title">
+
+        <input type="text" th:field="*{phoneNumber}"
+               class="form-control mb-4 col-4" placeholder="Mobile Phone">
+
+        <input type="text" th:field="*{city}"
+               class="form-control mb-4 col-4" placeholder="City">
+
+        <input type="text" th:field="*{webPage}"
+               class="form-control mb-4 col-4" placeholder="Web Page">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+    </form>
+</section>
+</body>
+
+</html>
