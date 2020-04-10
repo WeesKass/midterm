@@ -1,8 +1,9 @@
 # midterm
-CREDENTIALS:
+# CREDENTIALS:
    * login: user
    * password: password
-FEATURES:
+
+# FEATURES:
  * MySQL Database.
  * Papes (Home, CustomersList, AddCustomers, Login).
  * "Customers" web page to list all existing customers in the DB.
